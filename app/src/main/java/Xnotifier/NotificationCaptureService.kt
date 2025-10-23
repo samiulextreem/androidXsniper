@@ -24,27 +24,30 @@ class NotificationCaptureService : NotificationListenerService() {
             val title = extras.getString("android.title")
             val text = extras.getCharSequence("android.text")?.toString()
 
-            // If the new notification text is the same as the last one, ignore it.
-            if (text != null && text == lastNotificationText) {
-                Log.d("NotificationCapture", "Duplicate notification detected. Ignoring.")
-                return
-            }
+            // Filter for notifications from Elon Musk
+            if (title != null && title.contains("Elon Musk", ignoreCase = true)) {
+                // If the new notification text is the same as the last one, ignore it.
+                if (text != null && text == lastNotificationText) {
+                    Log.d("NotificationCapture", "Duplicate notification detected. Ignoring.")
+                    return
+                }
 
-            lastNotificationText = text
+                lastNotificationText = text
 
-            Log.d("NotificationCapture", "X notification captured:")
-            Log.d("NotificationCapture", "Title: $title")
-            Log.d("NotificationCapture", "Text: $text")
+                Log.d("NotificationCapture", "Elon Musk notification captured:")
+                Log.d("NotificationCapture", "Title: $title")
+                Log.d("NotificationCapture", "Text: $text")
 
-            // Send a broadcast to MainActivity
-            val intent = Intent("com.example.notificationrelay.NOTIFICATION_LISTENER")
-            intent.putExtra("title", title)
-            intent.putExtra("text", text)
-            LocalBroadcastManager.getInstance(this).sendBroadcast(intent)
+                // Send a broadcast to MainActivity
+                val intent = Intent("com.example.notificationrelay.NOTIFICATION_LISTENER")
+                intent.putExtra("title", title)
+                intent.putExtra("text", text)
+                LocalBroadcastManager.getInstance(this).sendBroadcast(intent)
 
-            // Send the notification text to the server
-            if (text != null) {
-                sendPayload(text)
+                // Send the notification text to the server
+                if (text != null) {
+                    sendPayload(text)
+                }
             }
         }
     }
