@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Android X Sniper</string>
+    <string name="start_sniping">Start Sniping</string>
+    <string name="stop_sniping">Stop Sniping</string>
+    <string name="status">Status: %s</string>
+    <string name="status_idle">Idle</string>
+    <string name="status_monitoring">Monitoring</string>
+    <string name="status_stopped">Stopped</string>
+    <string name="last_post">Last Post: %s</string>
+    <string name="no_posts">No posts detected yet</string>
+    <string name="configure">Configure</string>
+    <string name="api_key_hint">X API Key</string>
+    <string name="api_secret_hint">X API Secret</string>
+    <string name="bearer_token_hint">X Bearer Token</string>
+    <string name="server_url_hint">Server URL</string>
+    <string name="target_username_hint">Target Username (e.g., elonmusk)</string>
+    <string name="save">Save</string>
+    <string name="config_saved">Configuration saved</string>
+    <string name="config_incomplete">Please fill all fields</string>
+    <string name="notification_channel_name">X Sniper Service</string>
+    <string name="notification_channel_description">Monitors X posts and relays them to server</string>
+    <string name="notification_title">X Sniper Active</string>
+    <string name="notification_text">Monitoring posts from %s</string>
+    <string name="post_detected">New post detected!</string>
+    <string name="post_relayed">Post relayed to server</string>
+    <string name="error_relay_failed">Failed to relay post</string>
+</resources>
